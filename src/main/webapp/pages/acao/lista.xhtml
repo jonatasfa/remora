@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" template="../main.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<f:event listener="#{acaoMB.onLoad}" type="preRenderView" />
+		</f:view>
+
+		<p:panel id="acaoPanel" header="#{labels.acao}">
+			<h:form id="acaoForm">
+				<p:commandButton widgetVar="addButton" value="#{labels.button_add}"
+					action="/pages/acao/addEdit.faces" ajax="false"
+					actionListener="#{acaoAddEditMB.add}" />
+				<p:commandButton widgetVar="deleteButton" value="#{labels.button_delete}"
+					action="#{acaoMB.delete}" update="acaoDataTable" oncomplete="unselectRows();"  />
+				<p:commandButton widgetVar="updateButton" value="#{labels.button_update}"
+					update="acaoDataTable" action="/pages/acao/addEdit.faces"
+					actionListener="#{acaoAddEditMB.update}" />
+
+				<p:dataTable id="acaoDataTable" widgetVar="dataTable" var="acao" loadingMessage="#{labels.acao_load}"
+					value="#{acaoMB.listaAcao}" paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,20" rowKey="#{acao.acId}" selectionMode="single">
+
+					<p:ajax event="rowSelect" listener="#{acaoMB.selectAcao}" oncomplete="enableButtons();" />
+					<p:ajax event="page" listener="#{acaoMB.unselectAcao}" oncomplete="unselectRows();" />
+					<p:ajax event="rowUnselect" listener="#{acaoMB.unselectAcao}" oncomplete="disableButtons();" />
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.acao_descricao}" />
+						</f:facet>
+						<h:outputText value="#{acao.acDescricao}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>

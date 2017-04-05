@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" template="../main.xhtml">
+
+	<ui:define name="content">
+		<f:view>
+			<f:event listener="#{funcionalidadeMB.onLoad}" type="preRenderView" />
+		</f:view>
+
+		<p:panel id="funcionalidadePanel" header="#{labels.funcionalidade}">
+			<h:form id="funcionalidadeForm">
+				<p:commandButton widgetVar="addButton" value="#{labels.button_add}"
+					action="/pages/funcionalidade/addEdit.faces" ajax="false"
+					actionListener="#{funcionalidadeAddEditMB.add}" />
+				<p:commandButton widgetVar="deleteButton" value="#{labels.button_delete}"
+					action="#{funcionalidadeMB.delete}" update="funcionalidadeDataTable" oncomplete="unselectRows();"  />
+				<p:commandButton widgetVar="updateButton" value="#{labels.button_update}"
+					update="funcionalidadeDataTable" action="/pages/funcionalidade/addEdit.faces"
+					actionListener="#{funcionalidadeAddEditMB.update}" />
+
+				<p:dataTable id="funcionalidadeDataTable" widgetVar="dataTable" var="funcionalidade" loadingMessage="#{labels.funcionalidade_load}"
+					value="#{funcionalidadeMB.listaFuncionalidade}" paginator="true" rows="10"
+					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					rowsPerPageTemplate="5,10,20" rowKey="#{funcionalidade.fuId}" selectionMode="single">
+
+					<p:ajax event="rowSelect" listener="#{funcionalidadeMB.selectfuncionalidade}" oncomplete="enableButtons();" />
+					<p:ajax event="page" listener="#{funcionalidadeMB.unselectfuncionalidade}" oncomplete="unselectRows();" />
+					<p:ajax event="rowUnselect" listener="#{funcionalidadeMB.unselectfuncionalidade}" oncomplete="disableButtons();" />
+
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.funcionalidade_menu_descricao}" />
+						</f:facet>
+						<h:outputText value="#{funcionalidade.menu.meDescricao}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.funcionalidade_descricao}" />
+						</f:facet>
+						<h:outputText value="#{funcionalidade.fuDescricao}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.funcionalidade_ativo}" />
+						</f:facet>
+						<h:outputText value="#{funcionalidade.fuAtivo}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.funcionalidade_ordem}" />
+						</f:facet>
+						<h:outputText value="#{funcionalidade.fuOrdem}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.funcionalidade_pagina}" />
+						</f:facet>
+						<h:outputText value="#{funcionalidade.fuPagina}" />
+					</p:column>
+				</p:dataTable>
+			</h:form>
+		</p:panel>
+
+	</ui:define>
+</ui:composition>
