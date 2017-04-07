@@ -1,4 +1,4 @@
-.ui-layout, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap, .ui-layout-bd, .ui-layout-hd {
+.ui-layout, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap, .ui-layout-bd, .ui-layout-hd .companyHeaderGrid.ui-panelgrid .ui-panelgrid-cell {
 	border: none;
 } 
 
@@ -25,4 +25,20 @@
 	font-family: Verdana,sans-serif;
 	font-size: 10px;
 	font-weight: bolder;
+}
+
+.leftalign{
+	text-align: left;
+}
+
+.rightalign{
+	text-align: right;
+}
+
+.centeralign{
+	text-align: center;
+}
+
+.headerGrid td {
+    border: none;
 }

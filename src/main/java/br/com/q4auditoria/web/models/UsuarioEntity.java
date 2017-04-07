@@ -25,150 +25,150 @@ public class UsuarioEntity extends BaseEntity {
 	@GeneratedValue(generator = "SEQ_USUARIO", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "SEQ_USUARIO", sequenceName = "SEQ_USUARIO", allocationSize = 0)
 	@Column(name="us_id")
-	private Long usId;
+	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name="pe_id")
 	private PerfilEntity perfil;
 
 	@Column(name="us_nome")
-	private String usNome;
+	private String nome;
 
 	@Column(name="us_email")
-	private String usEmail;
+	private String email;
 
 	@Column(name="us_login")
-	private String usLogin;
+	private String login;
 
 	@Column(name="us_senha")
-	private String usSenha;
+	private String senha;
 
 	@Column(name="us_telefone")
-	private Integer usTelefone;
+	private Integer telefone;
 
 	@Column(name="us_ativo")
-	private Boolean usAtivo;
+	private Boolean ativo;
 
 	@Column(name="us_dt_acesso")
-	private Date usDtAcesso;
+	private Date dtAcesso;
 
 	@Column(name="us_alterar_senha")
-	private Boolean usAlterarSenha;
+	private Boolean alterarSenha;
 
 	@Column(name="us_dt_alt_senha")
-	private Date usDtAltSenha;
+	private Date dtAltSenha;
 
 	@Column(name="us_bloqueado")
-	private Boolean usBloqueado;
+	private Boolean bloqueado;
 
 	@Column(name="us_qnt_erro")
-	private Integer usQntErro;
+	private Integer qntErro;
 
 	public UsuarioEntity() {
 	}
 
-	public Long getUsId() {
-		return this.usId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setUsId(Long usId) {
-		this.usId = usId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public PerfilEntity getPerfil() {
-		return this.perfil;
+		return perfil;
 	}
 
 	public void setPerfil(PerfilEntity perfil) {
 		this.perfil = perfil;
 	}
 
-	public String getUsNome() {
-		return this.usNome;
+	public String getNome() {
+		return nome;
 	}
 
-	public void setUsNome(String usNome) {
-		this.usNome = usNome;
+	public void setNome(String nome) {
+		this.nome = nome;
 	}
 
-	public String getUsEmail() {
-		return this.usEmail;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setUsEmail(String usEmail) {
-		this.usEmail = usEmail;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
-	public String getUsLogin() {
-		return this.usLogin;
+	public String getLogin() {
+		return login;
 	}
 
-	public void setUsLogin(String usLogin) {
-		this.usLogin = usLogin;
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
-	public String getUsSenha() {
-		return this.usSenha;
+	public String getSenha() {
+		return senha;
 	}
 
-	public void setUsSenha(String usSenha) {
-		this.usSenha = usSenha;
+	public void setSenha(String senha) {
+		this.senha = senha;
 	}
 
-	public Integer getUsTelefone() {
-		return this.usTelefone;
+	public Integer getTelefone() {
+		return telefone;
 	}
 
-	public void setUsTelefone(Integer usTelefone) {
-		this.usTelefone = usTelefone;
+	public void setTelefone(Integer telefone) {
+		this.telefone = telefone;
 	}
 
-	public Boolean getUsAtivo() {
-		return this.usAtivo;
+	public Boolean getAtivo() {
+		return ativo;
 	}
 
-	public void setUsAtivo(Boolean usAtivo) {
-		this.usAtivo = usAtivo;
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 
-	public Date getUsDtAcesso() {
-		return this.usDtAcesso;
+	public Date getDtAcesso() {
+		return dtAcesso;
 	}
 
-	public void setUsDtAcesso(Date usDtAcesso) {
-		this.usDtAcesso = usDtAcesso;
+	public void setDtAcesso(Date dtAcesso) {
+		this.dtAcesso = dtAcesso;
 	}
 
-	public Boolean getUsAlterarSenha() {
-		return this.usAlterarSenha;
+	public Boolean getAlterarSenha() {
+		return alterarSenha;
 	}
 
-	public void setUsAlterarSenha(Boolean usAlterarSenha) {
-		this.usAlterarSenha = usAlterarSenha;
+	public void setAlterarSenha(Boolean alterarSenha) {
+		this.alterarSenha = alterarSenha;
 	}
 
-	public Date getUsDtAltSenha() {
-		return this.usDtAltSenha;
+	public Date getDtAltSenha() {
+		return dtAltSenha;
 	}
 
-	public void setUsDtAltSenha(Date usDtAltSenha) {
-		this.usDtAltSenha = usDtAltSenha;
+	public void setDtAltSenha(Date dtAltSenha) {
+		this.dtAltSenha = dtAltSenha;
 	}
 
-	public Boolean getUsBloqueado() {
-		return this.usBloqueado;
+	public Boolean getBloqueado() {
+		return bloqueado;
 	}
 
-	public void setUsBloqueado(Boolean usBloqueado) {
-		this.usBloqueado = usBloqueado;
+	public void setBloqueado(Boolean bloqueado) {
+		this.bloqueado = bloqueado;
 	}
 
-	public Integer getUsQntErro() {
-		return this.usQntErro;
+	public Integer getQntErro() {
+		return qntErro;
 	}
 
-	public void setUsQntErro(Integer usQntErro) {
-		this.usQntErro = usQntErro;
+	public void setQntErro(Integer qntErro) {
+		this.qntErro = qntErro;
 	}
 
 }
