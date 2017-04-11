@@ -48,7 +48,7 @@ public class PerfilAcaoFuncionalidadeAddEditMB extends BaseEntity {
 	}
 	
 	public void save(){
-		if (this.perfilAcaoFuncionalidade.getPfId() != null){
+		if (this.perfilAcaoFuncionalidade.getId() == null){
 			this.perfilAcaoFuncionalidadeService.insert(perfilAcaoFuncionalidade);
 		}else{
 			this.perfilAcaoFuncionalidadeService.update(perfilAcaoFuncionalidade);

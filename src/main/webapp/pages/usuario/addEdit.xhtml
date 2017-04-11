@@ -20,7 +20,7 @@
 			<h:inputHidden value="#{usuarioAddEditMB.usuario.bloqueado}" />
 			<h:inputHidden value="#{usuarioAddEditMB.usuario.qntErro}" />
 			
-			<p:panelGrid columns="3">
+			<p:panelGrid id="panelGrid" columns="3">
 				<f:facet name="header">
 					<p:outputLabel value="#{usuarioAddEditMB.title}" />
 				</f:facet>
@@ -28,7 +28,7 @@
 				<p:outputLabel value="Perfil: " for="inputPerfil" />
 				<p:selectOneMenu id="inputPerfil" value="#{usuarioAddEditMB.usuario.perfil}" converter="entityConverter">
 	                <f:selectItem itemLabel=":: Selecione ::" itemValue="" noSelectionOption="true" />
-	                <f:selectItems value="#{usuarioAddEditMB.listaPerfil}" var="perfil" itemLabel="#{perfil.peDescricao}" itemValue="#{perfil}" />
+	                <f:selectItems value="#{usuarioAddEditMB.listaPerfil}" var="perfil" itemLabel="#{perfil.descricao}" itemValue="#{perfil}" />
                 </p:selectOneMenu>
                 <h:message for="inputPerfil"/>
 				
@@ -58,12 +58,12 @@
 				
 				<f:facet name="footer">
 					<p:row>
-						<p:outputPanel style="width: 100%; text-align:center"
-							layout="block">
+						<p:outputPanel style="width: 100%; text-align:center" layout="block">
 							<p:commandButton value="Salvar" action="/pages/usuario/lista.faces"
 								actionListener="#{usuarioAddEditMB.save}" style="margin: 130 auto;"
-								oncomplete="disableButtons();" />
+								oncomplete="disableButtons();" update="panelGrid"/>
 							<p:commandButton value="Cancelar" action="/pages/usuario/lista.faces"
+								immediate="true" ajax="false"
 								style="margin: 130 auto;" oncomplete="disableButtons();" />
 						</p:outputPanel>
 					</p:row>

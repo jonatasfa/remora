@@ -23,73 +23,73 @@ public class FuncionalidadeEntity extends BaseEntity {
 	@GeneratedValue(generator = "SEQ_FUNCIONALIDADE", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "SEQ_FUNCIONALIDADE", sequenceName = "SEQ_FUNCIONALIDADE", allocationSize = 0)
 	@Column(name="fu_id")
-	private Long fuId;
+	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name="me_id")
 	private MenuEntity menu;
 
 	@Column(name="fu_descricao")
-	private String fuDescricao;
+	private String descricao;
 
 	@Column(name="fu_ativo")
-	private Boolean fuAtivo;
+	private Boolean ativo;
 
 	@Column(name="fu_ordem")
-	private int fuOrdem;
+	private int ordem;
 
 	@Column(name="fu_pagina")
-	private String fuPagina;
+	private String pagina;
 
 	public FuncionalidadeEntity() {
 	}
 
-	public Long getFuId() {
-		return this.fuId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setFuId(Long fuId) {
-		this.fuId = fuId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public MenuEntity getMenu() {
-		return this.menu;
+		return menu;
 	}
 
 	public void setMenu(MenuEntity menu) {
 		this.menu = menu;
 	}
 
-	public String getFuDescricao() {
-		return this.fuDescricao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setFuDescricao(String fuDescricao) {
-		this.fuDescricao = fuDescricao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public Boolean getFuAtivo() {
-		return this.fuAtivo;
+	public Boolean getAtivo() {
+		return ativo;
 	}
 
-	public void setFuAtivo(Boolean fuAtivo) {
-		this.fuAtivo = fuAtivo;
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
 	}
 
-	public int getFuOrdem() {
-		return this.fuOrdem;
+	public int getOrdem() {
+		return ordem;
 	}
 
-	public void setFuOrdem(int fuOrdem) {
-		this.fuOrdem = fuOrdem;
+	public void setOrdem(int ordem) {
+		this.ordem = ordem;
 	}
 
-	public String getFuPagina() {
-		return this.fuPagina;
+	public String getPagina() {
+		return pagina;
 	}
 
-	public void setFuPagina(String fuPagina) {
-		this.fuPagina = fuPagina;
+	public void setPagina(String pagina) {
+		this.pagina = pagina;
 	}
 
 }

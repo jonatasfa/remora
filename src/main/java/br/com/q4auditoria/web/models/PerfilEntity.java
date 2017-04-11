@@ -21,39 +21,39 @@ public class PerfilEntity extends BaseEntity {
 	@GeneratedValue(generator = "SEQ_PERFIL", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "SEQ_PERFIL", sequenceName = "SEQ_PERFIL", allocationSize = 0)
 	@Column(name="pe_id")
-	private Long peId;
+	private Long id;
 
 	@Column(name="pe_descricao")
-	private String peDescricao;
+	private String descricao;
 
 	@Column(name="pe_regra")
-	private String peRegra;
+	private String regra;
 
 	public PerfilEntity() {
 	}
 
-	public Long getPeId() {
-		return this.peId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setPeId(Long peId) {
-		this.peId = peId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getPeDescricao() {
-		return this.peDescricao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setPeDescricao(String peDescricao) {
-		this.peDescricao = peDescricao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public String getPeRegra() {
-		return this.peRegra;
+	public String getRegra() {
+		return regra;
 	}
 
-	public void setPeRegra(String peRegra) {
-		this.peRegra = peRegra;
+	public void setRegra(String regra) {
+		this.regra = regra;
 	}
 
 }

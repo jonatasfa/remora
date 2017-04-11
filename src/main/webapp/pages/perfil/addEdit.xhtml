@@ -9,25 +9,29 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:inputHidden value="#{acaoAddEditMB.acao.id}" />
+			<h:inputHidden value="#{perfilAddEditMB.perfil.id}" />
 			
 			<p:panelGrid id="panelGrid" columns="3">
 				<f:facet name="header">
-					<p:outputLabel value="#{acaoAddEditMB.title}" />
+					<p:outputLabel value="#{perfilAddEditMB.title}" />
 				</f:facet>
 				
 				<p:outputLabel value="Descrição: " for="inputDescricao" />
-				<p:inputText id="inputDescricao" value="#{acaoAddEditMB.acao.descricao}" />
+				<p:inputText id="inputDescricao" value="#{perfilAddEditMB.perfil.descricao}" />
                 <h:message for="inputDescricao"/>		
+				
+				<p:outputLabel value="Regra: " for="inputRegra" />
+				<p:inputText id="inputRegra" value="#{perfilAddEditMB.perfil.regra}" />
+                <h:message for="inputRegra"/>	
 				
 				<f:facet name="footer">
 					<p:row>
 						<p:outputPanel style="width: 100%; text-align:center"
 							layout="block">
-							<p:commandButton value="Salvar" action="/pages/acao/lista.faces"
-								actionListener="#{acaoAddEditMB.save}" style="margin: 130 auto;"
+							<p:commandButton value="Salvar" action="/pages/perfil/lista.faces"
+								actionListener="#{perfilAddEditMB.save}" style="margin: 130 auto;"
 								oncomplete="disableButtons();" update="panelGrid" />
-							<p:commandButton value="Cancelar" action="/pages/acao/lista.faces"
+							<p:commandButton value="Cancelar" action="/pages/perfil/lista.faces"
 								immediate="true" ajax="false"
 								style="margin: 130 auto;" oncomplete="disableButtons();" />
 						</p:outputPanel>

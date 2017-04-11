@@ -53,7 +53,7 @@ public class AcaoFuncionalidadeAddEditMB extends BaseEntity {
 	
 	public void save(){
 		if (this.acaoFuncionalidade != null){
-			if (this.acaoFuncionalidade.getAfId() != null){
+			if (this.acaoFuncionalidade.getId() == null){
 				this.acaoFuncionalidadeService.insert(acaoFuncionalidade);
 			}else{
 				this.acaoFuncionalidadeService.update(acaoFuncionalidade);

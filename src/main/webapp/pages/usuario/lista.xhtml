@@ -27,6 +27,7 @@
 				<p:dataTable id="usuarioDataTable" widgetVar="dataTable" var="usuario" loadingMessage="#{labels.usuario_load}"
 					value="#{usuarioMB.listaUsuario}" paginator="true" rows="10"
 					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+					currentPageReportTemplate="Página: {currentPage}/{totalPages}"
 					rowsPerPageTemplate="5,10,20" rowKey="#{usuario.id}" selectionMode="single">
 
 					<p:ajax event="rowSelect" listener="#{usuarioMB.selectUsuario}" oncomplete="enableButtons();" />
@@ -37,7 +38,7 @@
 						<f:facet name="header">
 							<h:outputText value="#{labels.usuario_perfil}" />
 						</f:facet>
-						<h:outputText value="#{usuario.perfil.peDescricao}" />
+						<h:outputText value="#{usuario.perfil.descricao}" />
 					</p:column>
 
 					<p:column>

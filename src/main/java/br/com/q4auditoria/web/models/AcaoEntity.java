@@ -21,28 +21,28 @@ public class AcaoEntity extends BaseEntity {
 	@GeneratedValue(generator = "SEQ_ACAO", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "SEQ_ACAO", sequenceName = "SEQ_ACAO", allocationSize = 0)
 	@Column(name="ac_id")
-	private Long acId;
+	private Long id;
 	
 	@Column(name="ac_descricao")
-	private String acDescricao;
+	private String descricao;
 
 	public AcaoEntity() {
 	}
 
-	public Long getAcId() {
-		return this.acId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setAcId(Long acId) {
-		this.acId = acId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
-	public String getAcDescricao() {
-		return this.acDescricao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setAcDescricao(String acDescricao) {
-		this.acDescricao = acDescricao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
 }

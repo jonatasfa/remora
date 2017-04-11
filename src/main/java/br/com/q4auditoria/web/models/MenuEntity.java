@@ -23,27 +23,27 @@ public class MenuEntity extends BaseEntity {
 	@GeneratedValue(generator = "SEQ_MENU", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "SEQ_MENU", sequenceName = "SEQ_MENU", allocationSize = 0)
 	@Column(name="me_id")
-	private Long meId;
+	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name="me_id_pai")
 	private MenuEntity menuPai;
 
 	@Column(name="me_descricao")
-	private String meDescricao;
+	private String descricao;
 
 	@Column(name="me_ordem")
-	private int meOrdem;
+	private int ordem;
 
 	public MenuEntity() {
 	}
 
-	public Long getMeId() {
-		return this.meId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setMeId(Long meId) {
-		this.meId = meId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public MenuEntity getMenuPai() {
@@ -54,20 +54,20 @@ public class MenuEntity extends BaseEntity {
 		this.menuPai = menuPai;
 	}
 
-	public String getMeDescricao() {
-		return this.meDescricao;
+	public String getDescricao() {
+		return descricao;
 	}
 
-	public void setMeDescricao(String meDescricao) {
-		this.meDescricao = meDescricao;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
 	}
 
-	public int getMeOrdem() {
-		return this.meOrdem;
+	public int getOrdem() {
+		return ordem;
 	}
 
-	public void setMeOrdem(int meOrdem) {
-		this.meOrdem = meOrdem;
+	public void setOrdem(int ordem) {
+		this.ordem = ordem;
 	}
 
 }

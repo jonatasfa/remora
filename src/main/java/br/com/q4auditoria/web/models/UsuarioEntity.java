@@ -47,10 +47,10 @@ public class UsuarioEntity extends BaseEntity {
 	private Integer telefone;
 
 	@Column(name="us_ativo")
-	private Boolean ativo;
+	private Boolean ativo = true;
 
 	@Column(name="us_dt_acesso")
-	private Date dtAcesso;
+	private Date dtAcesso = new Date();
 
 	@Column(name="us_alterar_senha")
 	private Boolean alterarSenha;

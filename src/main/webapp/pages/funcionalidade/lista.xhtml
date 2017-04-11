@@ -26,45 +26,45 @@
 				<p:dataTable id="funcionalidadeDataTable" widgetVar="dataTable" var="funcionalidade" loadingMessage="#{labels.funcionalidade_load}"
 					value="#{funcionalidadeMB.listaFuncionalidade}" paginator="true" rows="10"
 					paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
-					rowsPerPageTemplate="5,10,20" rowKey="#{funcionalidade.fuId}" selectionMode="single">
+					rowsPerPageTemplate="5,10,20" rowKey="#{funcionalidade.id}" selectionMode="single">
 
-					<p:ajax event="rowSelect" listener="#{funcionalidadeMB.selectfuncionalidade}" oncomplete="enableButtons();" />
-					<p:ajax event="page" listener="#{funcionalidadeMB.unselectfuncionalidade}" oncomplete="unselectRows();" />
-					<p:ajax event="rowUnselect" listener="#{funcionalidadeMB.unselectfuncionalidade}" oncomplete="disableButtons();" />
-
-					<p:column>
-						<f:facet name="header">
-							<h:outputText value="#{labels.funcionalidade_menu_descricao}" />
-						</f:facet>
-						<h:outputText value="#{funcionalidade.menu.meDescricao}" />
-					</p:column>
+					<p:ajax event="rowSelect" listener="#{funcionalidadeMB.selectFuncionalidade}" oncomplete="enableButtons();" />
+					<p:ajax event="page" listener="#{funcionalidadeMB.unselectFuncionalidade}" oncomplete="unselectRows();" />
+					<p:ajax event="rowUnselect" listener="#{funcionalidadeMB.unselectFuncionalidade}" oncomplete="disableButtons();" />
 					
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="#{labels.funcionalidade_descricao}" />
 						</f:facet>
-						<h:outputText value="#{funcionalidade.fuDescricao}" />
+						<h:outputText value="#{funcionalidade.descricao}" />
+					</p:column>
+					
+					<p:column>
+						<f:facet name="header">
+							<h:outputText value="#{labels.funcionalidade_menu_descricao}" />
+						</f:facet>
+						<h:outputText value="#{funcionalidade.menu.descricao}" />
 					</p:column>
 					
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="#{labels.funcionalidade_ativo}" />
 						</f:facet>
-						<h:outputText value="#{funcionalidade.fuAtivo}" />
+						<h:outputText value="#{funcionalidade.ativo}" />
 					</p:column>
 					
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="#{labels.funcionalidade_ordem}" />
 						</f:facet>
-						<h:outputText value="#{funcionalidade.fuOrdem}" />
+						<h:outputText value="#{funcionalidade.ordem}" />
 					</p:column>
 					
 					<p:column>
 						<f:facet name="header">
 							<h:outputText value="#{labels.funcionalidade_pagina}" />
 						</f:facet>
-						<h:outputText value="#{funcionalidade.fuPagina}" />
+						<h:outputText value="#{funcionalidade.pagina}" />
 					</p:column>
 				</p:dataTable>
 			</h:form>

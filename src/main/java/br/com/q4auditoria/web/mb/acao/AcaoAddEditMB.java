@@ -53,7 +53,7 @@ public class AcaoAddEditMB extends BaseEntity {
 	
 	public void save() {
 		if (this.acao != null) {
-			if (this.acao.getAcId() == null) {
+			if (this.acao.getId() == null) {
 				// Add
 				this.acaoService.insert(this.acao);
 			} else {

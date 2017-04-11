@@ -23,7 +23,7 @@ public class PerfilAcaoFuncionalidadeEntity extends BaseEntity {
 	@GeneratedValue(generator = "SEQ_PERFILACAOFUNCIONALIDADE", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "SEQ_PERFILACAOFUNCIONALIDADE", sequenceName = "SEQ_PERFILACAOFUNCIONALIDADE", allocationSize = 0)
 	@Column(name="pf_id")
-	private Long pfId;
+	private Long id;
 
 	@ManyToOne
 	@JoinColumn(name="af_id")
@@ -36,12 +36,12 @@ public class PerfilAcaoFuncionalidadeEntity extends BaseEntity {
 	public PerfilAcaoFuncionalidadeEntity() {
 	}
 
-	public Long getPfId() {
-		return this.pfId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setPfId(Long pfId) {
-		this.pfId = pfId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public AcaoFuncionalidadeEntity getAcaoFuncionalidade() {

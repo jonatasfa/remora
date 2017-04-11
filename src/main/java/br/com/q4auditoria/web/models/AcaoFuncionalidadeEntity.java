@@ -23,7 +23,7 @@ public class AcaoFuncionalidadeEntity extends BaseEntity {
 	@GeneratedValue(generator = "SEQ_ACAOFUNCIONALIDADE", strategy = GenerationType.SEQUENCE)
 	@SequenceGenerator(name = "SEQ_ACAOFUNCIONALIDADE", sequenceName = "SEQ_ACAOFUNCIONALIDADE", allocationSize = 0)
 	@Column(name="af_id")
-	private Long afId;
+	private Long id;
 	
 	@ManyToOne
 	@JoinColumn(name="ac_id")
@@ -36,12 +36,12 @@ public class AcaoFuncionalidadeEntity extends BaseEntity {
 	public AcaoFuncionalidadeEntity() {
 	}
 
-	public Long getAfId() {
-		return this.afId;
+	public Long getId() {
+		return id;
 	}
 
-	public void setAfId(Long afId) {
-		this.afId = afId;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public AcaoEntity getAcao() {

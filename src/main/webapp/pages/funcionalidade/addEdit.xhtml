@@ -9,36 +9,45 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:inputHidden value="#{funcionalidadeAddEditMB.funcionalidade.fuId}" />
+			<h:inputHidden value="#{funcionalidadeAddEditMB.funcionalidade.id}" />
 			
-			<p:panelGrid columns="2">
+			<p:panelGrid id="panelGrid" columns="3">
 				<f:facet name="header">
 					<p:outputLabel value="#{funcionalidadeAddEditMB.title}" />
 				</f:facet>
 				
-				<p:outputLabel value="Menu: " />
-				<p:inputText value="#{funcionalidadeAddEditMB.funcionalidade.menu.meDescricao}" />
+				<p:outputLabel value="Menu: " for="inputMenu" />
+				<p:selectOneMenu id="inputMenu" value="#{funcionalidadeAddEditMB.funcionalidade.menu}" converter="entityConverter">
+	                <f:selectItem itemLabel=":: Selecione ::" itemValue="" noSelectionOption="true" />
+	                <f:selectItems value="#{funcionalidadeAddEditMB.listaMenu}" var="menu" itemLabel="#{menu.descricao}" itemValue="#{menu}" />
+                </p:selectOneMenu>                
+                <h:message for="inputMenu"/>		
 				
-				<p:outputLabel value="Descrição: " />
-				<p:inputText value="#{funcionalidadeAddEditMB.funcionalidade.fuDescricao}" />
+				<p:outputLabel value="Descrição: " for="inputDescricao" />
+				<p:inputText id="inputDescricao" value="#{funcionalidadeAddEditMB.funcionalidade.descricao}" />
+                <h:message for="inputDescricao"/>		
 				
-				<p:outputLabel value="Ativo: " />
-				<p:inputText value="#{funcionalidadeAddEditMB.funcionalidade.fuAtivo}" />
+				<p:outputLabel value="Ativo: " for="inputAtivo" />
+				<p:selectBooleanButton id="inputAtivo" value="#{funcionalidadeAddEditMB.funcionalidade.ativo}" onLabel="Sim" offLabel="Não" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px"/>
+				<h:message for="inputAtivo"/>		
 				
-				<p:outputLabel value="Ordem: " />
-				<p:inputText value="#{funcionalidadeAddEditMB.funcionalidade.fuOrdem}" />
+				<p:outputLabel value="Ordem: " for="inputOrdem" />
+				<p:inputText id="inputOrdem" value="#{funcionalidadeAddEditMB.funcionalidade.ordem}" />
+                <h:message for="inputOrdem"/>		
 				
-				<p:outputLabel value="Página: " />
-				<p:inputText value="#{funcionalidadeAddEditMB.funcionalidade.fuPagina}" />
+				<p:outputLabel value="Página: " for="inputPagina" />
+				<p:inputText id="inputPagina" value="#{funcionalidadeAddEditMB.funcionalidade.pagina}" />
+                <h:message for="inputPagina"/>		
 				
 				<f:facet name="footer">
 					<p:row>
 						<p:outputPanel style="width: 100%; text-align:center"
 							layout="block">
-							<p:commandButton value="Save" action="/pages/funcionalidade/lista.faces"
+							<p:commandButton value="Salvar" action="/pages/funcionalidade/lista.faces"
 								actionListener="#{funcionalidadeAddEditMB.save}" style="margin: 130 auto;"
-								oncomplete="disableButtons();" />
-							<p:commandButton value="Cancel" action="/pages/funcionalidade/lista.faces"
+								oncomplete="disableButtons();" update="panelGrid" />
+							<p:commandButton value="Cancelar" action="/pages/funcionalidade/lista.faces"
+								immediate="true" ajax="false"
 								style="margin: 130 auto;" oncomplete="disableButtons();" />
 						</p:outputPanel>
 					</p:row>

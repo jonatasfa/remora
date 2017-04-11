@@ -48,7 +48,7 @@ public class PerfilAddEditMB extends BaseEntity {
 	}
 	
 	public void save(){
-		if (this.perfil.getPeId() != null){
+		if (this.perfil.getId() == null){
 			this.perfilService.insert(perfil);
 		}else{
 			this.perfilService.update(perfil);
