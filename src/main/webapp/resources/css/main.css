@@ -1,6 +1,10 @@
-.ui-layout, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap, .ui-layout-bd, .ui-layout-hd .companyHeaderGrid.ui-panelgrid .ui-panelgrid-cell {
+.ui-layout, .ui-layout-doc, .ui-layout-unit, .ui-layout-wrap, .ui-layout-bd, .ui-layout-hd {
 	border: none;
 } 
+
+.ui-panelgrid {
+   border: none !important;" 
+}
 
 .ui-widget {
 	font-size: 95% !important;	

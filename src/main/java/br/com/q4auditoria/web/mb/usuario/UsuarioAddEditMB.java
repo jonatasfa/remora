@@ -9,6 +9,7 @@ import javax.inject.Named;
 import org.springframework.context.annotation.Scope;
 import org.springframework.web.context.WebApplicationContext;
 
+import br.com.q4auditoria.web.converters.ConverterUtility;
 import br.com.q4auditoria.web.models.PerfilEntity;
 import br.com.q4auditoria.web.models.UsuarioEntity;
 import br.com.q4auditoria.web.services.interfaces.IPerfilService;
@@ -37,7 +38,7 @@ public class UsuarioAddEditMB extends BaseEntity {
 	private List<PerfilEntity> listaPerfil;
 	 
 	public UsuarioAddEditMB(){
-		this.usuario = new UsuarioEntity();
+		this.usuario = new UsuarioEntity();		
 	}
 	
 	public UsuarioEntity getUsuario(){
@@ -58,7 +59,13 @@ public class UsuarioAddEditMB extends BaseEntity {
 	}
 	
 	public void save(){
-		if (this.usuario.getId() != null){			
+		if (this.usuario.getId() == null){	
+			this.usuario.setDtAcesso(new Date());
+			this.usuario.setAlterarSenha(false);
+			this.usuario.setDtAltSenha(new Date());
+			this.usuario.setBloqueado(false);
+			this.usuario.setQntErro(0);
+			this.usuario.setSenha(ConverterUtility.encrypt(this.usuario.getSenha()));
 			this.usuarioService.insert(usuario);
 		}else{
 			this.usuarioService.update(usuario);

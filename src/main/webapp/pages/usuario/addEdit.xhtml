@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:p="http://primefaces.org/ui" template="../main.xhtml">
+
+	<ui:define name="content">
+		<h:form>
+			<h:inputHidden value="#{usuarioAddEditMB.usuario.id}" />
+			<h:inputHidden value="#{usuarioAddEditMB.usuario.dtAcesso}">
+				<f:convertDateTime pattern="yyyy-MM-dd HH:mm" />
+			</h:inputHidden>
+			<h:inputHidden value="#{usuarioAddEditMB.usuario.alterarSenha}" />
+			<h:inputHidden value="#{usuarioAddEditMB.usuario.dtAltSenha}">
+				<f:convertDateTime pattern="yyyy-MM-dd HH:mm" />
+			</h:inputHidden>
+			<h:inputHidden value="#{usuarioAddEditMB.usuario.bloqueado}" />
+			<h:inputHidden value="#{usuarioAddEditMB.usuario.qntErro}" />
+			
+			<p:panelGrid columns="3">
+				<f:facet name="header">
+					<p:outputLabel value="#{usuarioAddEditMB.title}" />
+				</f:facet>
+				
+				<p:outputLabel value="Perfil: " for="inputPerfil" />
+				<p:selectOneMenu id="inputPerfil" value="#{usuarioAddEditMB.usuario.perfil}" converter="entityConverter">
+	                <f:selectItem itemLabel=":: Selecione ::" itemValue="" noSelectionOption="true" />
+	                <f:selectItems value="#{usuarioAddEditMB.listaPerfil}" var="perfil" itemLabel="#{perfil.peDescricao}" itemValue="#{perfil}" />
+                </p:selectOneMenu>
+                <h:message for="inputPerfil"/>
+				
+				<p:outputLabel value="Nome: " for="inputNome" />
+				<p:inputText id="inputNome" value="#{usuarioAddEditMB.usuario.nome}" />
+                <h:message for="inputNome"/>
+				
+				<p:outputLabel value="Email: " for="inputEmail" />
+				<p:inputText id="inputEmail" value="#{usuarioAddEditMB.usuario.email}" />
+                <h:message for="inputEmail"/>
+				
+				<p:outputLabel value="Telefone: " for="inputTelefone" />
+				<p:inputText id="inputTelefone" value="#{usuarioAddEditMB.usuario.telefone}" />
+                <h:message for="inputTelefone"/>
+				
+				<p:outputLabel value="Ativo: " for="inputAtivo" />
+				<p:selectBooleanButton id="inputAtivo" value="#{usuarioAddEditMB.usuario.ativo}" onLabel="Sim" offLabel="Não" onIcon="ui-icon-check" offIcon="ui-icon-close" style="width:60px"/>
+                <h:message for="inputAtivo"/>
+				
+				<p:outputLabel value="Login: " for="inputLogin" />
+				<p:inputText id="inputLogin" value="#{usuarioAddEditMB.usuario.login}" />
+                <h:message for="inputLogin"/>
+				
+				<p:outputLabel value="Senha: " for="inputSenha" />
+				<p:inputText id="inputSenha" value="#{usuarioAddEditMB.usuario.senha}" />
+                <h:message for="inputSenha"/>				
+				
+				<f:facet name="footer">
+					<p:row>
+						<p:outputPanel style="width: 100%; text-align:center"
+							layout="block">
+							<p:commandButton value="Salvar" action="/pages/usuario/lista.faces"
+								actionListener="#{usuarioAddEditMB.save}" style="margin: 130 auto;"
+								oncomplete="disableButtons();" />
+							<p:commandButton value="Cancelar" action="/pages/usuario/lista.faces"
+								style="margin: 130 auto;" oncomplete="disableButtons();" />
+						</p:outputPanel>
+					</p:row>
+				</f:facet>
+			</p:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

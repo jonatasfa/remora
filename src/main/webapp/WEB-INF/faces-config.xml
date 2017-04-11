@@ -26,4 +26,9 @@
 			<var>messages</var>
 		</resource-bundle>
 	</application>
+	
+	<converter>		
+       <converter-id>entityConverter</converter-id>
+       <converter-class>br.com.q4auditoria.web.converters.EntityConverter</converter-class>
+	</converter>
 </faces-config>
